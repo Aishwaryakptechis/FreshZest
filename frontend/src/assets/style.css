@@ -1,141 +1,595 @@
-/*
-Common
-************************************/
-
-html,
 body {
-    height: 100%;
-    font-family: sans-serif;
+	position: absolute;
+	margin: 0%;
+	width: 100%;
+}
+.main {
+	position: relative;
+}
+.main .head {
+	display: flex;
+	justify-content: space-around;
+}
+.main .head h3 {
+	color: #a4c703;
+	margin-left: 1%;
+	font-size: 35px;
+	margin-top: 1%;
+}
+#bimg {
+	width: 100%;
+}
+.main .head p {
+	font-size: 35px;
+	margin: 1% 0% 0% 65%;
 }
 
-.content {
-    width: 600px;
-    height: 100%;
-    margin: 0 auto;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+.main .head img {
+	width: 4%;
+	height: 0%;
+	margin: 1% 2% 0% 0%;
+}
+.bottom {
+	margin: 0%;
+}
+.bottom .foot {
+	display: flex;
+	justify-content: space-between;
+}
+.bottom .foot p {
+	font-size: 35px;
+	font-weight: bold;
+	margin: 3% 0% 0% 50%;
+}
+.bottom .foot button {
+	margin: 2% 2% 1% 2%;
+	width: 22%;
+	height: 70px;
+	font-size: 30px;
+	border-radius: 6%;
+	background-color: #a4c703;
+	color: white;
 }
 
-@media screen and (max-width: 500px) {
+/* .item {
+	position: relative;
+	margin: 5% 5% 1% 5%;
+}
+.item .text {
+	font-size: 35px;
+	float: RIGHT;
+	margin-right: 38%;
+}
+.item .item1 img {
+	width: 35%;
+}
+.item .item1 h3 {
+	font-size: 35px;
+	float: RIGHT;
+	margin-bottom: 60%;
+}
+.item .item1 {
+	margin: 0% 0% 5% 0%;
 }
 
-/*
-Posts
-************************************/
-
-.post_form {
-    padding: 20px;
-    border-bottom: 1px solid #ccc;
+.item .item1 button {
+	float: right;
+	margin-top: -23%;
+	margin-right: -160%;
+	width: 40%;
+	height: 50px;
+	background-color: #a4c703;
+	font-size: 25px;
+	color: white;
+	border-radius: 10%;
+} */
+.bottom {
+	margin: 0%;
+	border-top: 1px solid #c2e8c230;
+	background-color: #c2e8c230;
+}
+.bottom .footer {
+	display: flex;
+	justify-content: space-between;
 }
 
-.post_form input {
-    width: 96%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
+.bottom .footer p {
+	font-size: 35px;
+	margin-left: 40%;
+	font-weight: bold;
+	margin-top: 2%;
 }
 
-.post_form textarea {
-    width: 96%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
+.bottom .footer button {
+	margin-right: 5%;
+	background-color: #a4c703;
+	color: white;
+	font-size: 30px;
+	width: 20%;
+	height: 75px;
+	border-radius: 5%;
+	margin-bottom: 2%;
+	margin-top: 1%;
+}
+.main2 h4 {
+	background-color: #a4c703;
+	padding-left: 40%;
+	padding-bottom: 3%;
+	color: white;
+	padding-top: 3%;
+	font-size: 40px;
+	text-align: center;
+}
+.main3 h4 {
+	background-color: #a4c703;
+	color: white;
+	font-size: 40px;
+	text-align: center;
+	padding: 3% 0% 3% 0%;
+	margin: 0%;
 }
 
-.post_form .upload-area {
-    width: 96%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
+.note p {
+	font-size: 35px;
+	margin-top: 7%;
+	text-align: center;
 }
 
-.post_form button {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
+.note button {
+	margin-left: 40%;
+	font-size: 30px;
+	margin-top: 5%;
+	background-color: #a4c703;
+	border-radius: 5%;
+	color: white;
 }
 
-.upload-image {
-    width: 50%;
+.form {
+	margin-left: 10%;
+    margin-right: 10%;
+	font-size: 20px;
 }
 
-.posts ul {
-    padding: 0;
+.form input {
+	width: 40%;
+	background-color: #eaeaea;
+	border-color: #eaeaea;
+}
+.form button {
+	margin-top: 5%;
+	background-color: #a4c703;
+	border-radius: 5%;
+	color: white;
 }
 
-.posts li {
-    position: relative;
-    display: flex;
-    border-bottom: 1px solid #ccc;
-    padding: 20px 40px;
-    list-style: none;
+.order1 {
+	display: flex;
+	justify-content: space-between;
+}
+.order1 h3 {
+	margin-right: 10%;
+}
+#Q {
+	margin-left: -1%;
+}
+#Q1 {
+	margin-left: 6%;
 }
 
-.posts li .menu_icon {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: 30px;
-    top: 18px;
-    cursor: pointer;
+.order2 {
+	display: flex;
+	justify-content: space-between;
+	border-top: 1px solid;
+}
+.order2 h3 {
+	margin-right: 10%;
+}
+.one {
+	margin: 2%;
 }
 
-.posts li .menu {
-    position: absolute;
-    top: 40px;
-    right: 15px;
-    border: 1px solid #ccc;
-    background-color: white;
-    padding: 10px 15px;
-    font-size: 13px;
-    border-radius: 3px;
-    cursor: pointer;
+.one img {
+	width: 35%;
+}
+.one .name {
+	margin: 1.5%;
+	text-decoration: none;
+	color: black;
+	position: absolute;
+	font-size: 35px;
+}
+.one .price {
+	text-decoration: none;
+	color: black;
+	position: absolute;
+	bottom: 55%;
+	left: 38%;
+	font-size: 35px;
+}
+.one .btn {
+	border-color: yellowgreen;
+	background-color: rgb(154, 205, 50);
+	color: white;
+	display: inline-flex;
+	position: relative;
+	margin-top: 22%;
+	left: 50%;
+}
+.one .price1 {
+	text-decoration: none;
+	color: black;
+	position: absolute;
+	bottom: 39%;
+	left: 38%;
+	font-size: 35px;
+}
+.one .price2 {
+	text-decoration: none;
+	color: black;
+	position: absolute;
+	bottom: 23%;
+	left: 38%;
+	font-size: 35px;
+}
+.one .price3 {
+	text-decoration: none;
+	color: black;
+	position: absolute;
+	bottom: 7%;
+	left: 38%;
+	font-size: 35px;
+}
+.popup {
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.2);
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+}
+.popup .popup-inner {
+	background-color: white;
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	z-index: 3;
+	left: 35vw;
+	top: 15%;
+	width: 30%;
+	height: 50%;
 }
 
-.posts li img {
-    width: 100%;
+.popup .popup-inner h2 {
+	position: relative;
+	color: black;
+	top: 5%;
+}
+.popup .popup-input {
+	display: block;
+	top: 8%;
+	position: relative;
 }
 
-.posts li .menu a {
-    text-decoration: none;
+.popup input {
+	width: 70%;
+	height: 4vh;
+	background-color: rgba(0, 0, 0, 0);
+	border: 1;
+	border: 1px solid #a4c703;
+}
+.popup .popup-input button {
+	width: 73%;
+	height: 5vh;
+	background-color: #a4c703;
+	color: white;
+	font-size: larger;
 }
 
-.posts li .logo {
-    flex-basis: 15%;
+/***************************
+****************************
+******RESPONSIVE PART ******
+****************************/
+@media screen and (max-width: 1024px) {
+	.popup .popup-inner {
+		height: 60%;
+	}
+	.bottom .footer button {
+		width: 25%;
+	}
+	.form {
+    	margin-left: 10%;
+    	font-size: 35px;
+	}
+	#Q1 {
+    	margin-left: 15%;
+	}
+	.form input {
+    	width: 80%;
+	}
+	.popup .popup-inner{
+		width: 40%;
+		height: 60%;
+		left: 30vw;
+	}
+
 }
 
-.posts li .logo img {
-    width: 60%;
+@media screen and (max-width: 800px) {
+	.main .head p {
+    	margin: 0% 0% 0% 45%;
+	}
+	.main .head img {
+		width: 5%;
+	}
+	.bottom .footer p{
+		margin-left: 25%;
+	}
+	.bottom .footer button {
+		width: 32%;
+	}
+	.one .price{
+		bottom: 56%;
+	}
+	.one .price1 {
+		bottom: 40%;
+	}
+	.one .price2 {
+		bottom: 24%;
+	}
+	.one .price3 {
+		bottom: 8%;
+	}
+	.one .btn {
+		margin-top: 20%;
+	}
+	#Q1 {
+    	margin-left: 11%;
+	}
+	.form input {
+    	width: 75%;
+	}
+	.popup .popup-inner{
+		width: 57%;
+    	height: 50%;
+		left: 20vw;
+	}
 }
 
-.posts li .name_body {
-    flex-basis: 85%;
+
+@media screen and (max-width: 600px) {
+	.main .head p {
+    	font-size: 25px;
+    	margin: 0% 0% 0% 30%;
+	}
+	.main .head h3 {
+		font-size: 25px;
+	}
+	.one .price {
+		left: 38%;
+		bottom: 57%;
+	}
+	.one .price1 {
+		left: 38%;
+		bottom: 41%;
+	}
+	.one .price2 {
+		left: 38%;
+		bottom: 24%;
+	}
+	.one .price3 {
+		left: 38%;
+		bottom: 9%;
+	}
+	.one .btn {
+		left: 45%;
+		margin-top: 18%;
+	}
+	.bottom .footer p {
+    	font-size: 30px;
+  		margin-left: 16%;
+	}
+	.bottom .footer button {
+		width: 30%;
+		margin-top: 2%;
+		height: 50px;
+		font-size: 20px;
+	}
+	.note button {
+    	margin-left: 30%;
+	}
+	.form input {
+    	width: 80%;
+	}
+	#Q1 {
+    	margin-left: 16%;
+	}
+	.form {
+    	margin-left: 10%;
+    	font-size: 20px;
+	}
+	.popup .popup-inner{
+		left: 15vw;
+    	width: 70%;
+		height: 60%;
+	}
+
 }
 
-.posts li .name_body .name {
-    font-weight: bold;
-    margin-bottom: 10px;
+
+
+
+@media screen and (max-width: 450px) {
+	.main .head h3{
+		margin-left: 2%;
+    	font-size: 20px;
+	}
+	.main .head p {
+    	font-size: 20px;
+    	margin: 1% 0% 0% 35%;
+	}
+	.main .head img{
+		width: 5%;
+		margin: 2% 2% 0% 0%;
+	}
+	
+	.one img {
+    	width: 35%;
+	}
+	.one .name {
+		font-size: 20px;
+	}
+	.one .price {
+		font-size: 20px;
+		left: 38%;
+		bottom: 58%;
+	}
+	.one .price1 {
+		font-size: 20px;
+		left: 38%;
+		bottom: 41%;
+	}
+	.one .price2 {
+		font-size: 20px;
+		left: 38%;
+		bottom: 25%;
+	}
+	.one .price3 {
+		font-size: 20px;
+		left: 38%;
+		bottom: 9%;
+	}
+	.one .btn{
+		left: 40%;
+	}
+	.bottom .footer button{
+		width: 43%;
+		height: 40px;
+		font-size: 15px;
+		margin-top: 2%;
+	}
+	.bottom .footer p {
+		font-size: 20px;
+		margin-left: 6%;
+
+	}
+	.main3 h4 {
+		padding-left: 3%;
+		padding: 6% 0% 6% 0%;
+		font-size: 25px;
+	}
+	.note p {
+    	margin-left: 0%;
+    	font-size: 27px;
+	}
+	.note button {
+		margin-left: 23%;
+		
+	}
+	#Q1 {
+    	margin-left: 24%;
+	}
+	.form {
+    	margin-left: 10%;
+    	font-size: 15px;
+	}
 }
 
-.posts li .name_body .body {
-    margin: 10px 0px;
+@media screen and (max-width: 414px) {
+	#Q1 {
+    	margin-left: 17%;
+	}
+	
 }
 
-.posts li .name_body .datetime {
-    color: gray;
-    margin-bottom: 10px;
+@media screen and (max-width: 360px) {
+	#Q1 {
+    	margin-left: 19%;
+	}
 }
 
-.no-post {
-    text-align: center;
+
+@media screen and (max-width: 280px) {
+	.main .head h3 {
+		font-size: 15px;
+	}
+	.main .head p {
+		font-size: 15px;
+		margin: 0% 0% 0% 32%;
+	}
+	.main .head img {
+		width: 7%;
+	}
+	.one img {
+		width: 40%;
+	}
+	.one .name {
+		font-size: 15px;
+		margin: 1%;
+	}
+	.one .price {
+		bottom: 62%;
+		left: 43%;
+		font-size: 15px;
+	}
+	.one .price1 {
+		bottom: 45%;
+		left: 43%;
+		font-size: 15px;
+	}
+	.one .price2 {
+		bottom: 28%;
+		left: 43%;
+		font-size: 15px;
+	}
+	.one .price3 {
+		bottom: 11%;
+		left: 43%;
+		font-size: 15px;
+	}
+	.bottom .footer button {
+		height: 35px;
+    	width: 49%;
+    	margin-top: 5%;
+    	font-size: 15px;
+    	margin-right: 3%;
+	}
+	.one .btn {
+		margin-top: 21%;
+		left: 35%;
+		padding: 0;
+	}
+	.bottom .footer p {
+		font-size: 15px;
+		margin-left: 2%;
+		font-weight: bold;
+		margin-top: 8%;
+	}
+	.note button {
+    	margin-left: 14%;
+	}
+	.main3 h4 {
+    	font-size: 20px;
+	}
+	.form {
+    	margin-left: 4%;
+    	font-size: 15px;
+	}
+	.order1 h3 {
+		font-size: 15px;
+	}
+	.order2 h3 {
+    	margin-right: 10%;
+    	font-size: 15px;
+	}
+	.form h4 {
+		font-size: 15px;
+	}
+	#Q1 {
+    	margin-left: 20%;
+	}
+	.form input {
+    	width: 90%;
+	}
 }
 
-.no-post p {
-    margin: 0px 0px;
-}
-
-.loading {
-    text-align: center;
-}

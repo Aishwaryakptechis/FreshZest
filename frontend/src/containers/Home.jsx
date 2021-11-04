@@ -6,6 +6,9 @@ import PostForm from '../components/Posts/PostForm';
 import Post from '../components/Posts/Post';
 import { fetchPosts } from '../reducks/posts/operations';
 import { getPosts } from '../reducks/posts/selectors';
+import Header from '../components/common/Header'
+import Footer from '../components/common/Footer'
+import List from '../components/common/List';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -49,38 +52,15 @@ const Home = () => {
             }
         },
         // eslint-disable-next-line
-        [posts.next]
+        // [posts.next]
     );
 
     return (
-        <section className="content">
-            <PostForm />
-            <section className="posts">
-                {posts.results.length > 0 ? (
-                    <ul>
-                        {posts.results.map((post, index) => {
-                            return (
-                                <Post
-                                    ref={index === posts.results.length - 1 ? lastPostElement : null}
-                                    key={post.id}
-                                    post={post}
-                                />
-                            );
-                        })}
-                    </ul>
-                ) : (
-                    <div className="no-post">
-                        <img width="72" src={postImage} alt="icon" />
-                        <p>No posts here yet...</p>
-                    </div>
-                )}
-                {isLoading && (
-                    <div className="loading">
-                        <img src={Loading} className="" alt="" />
-                    </div>
-                )}
-            </section>
-        </section>
+        <>
+         <Header/>
+         <List/>
+         <Footer/>
+        </>
     );
 };
 

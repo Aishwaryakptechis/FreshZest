@@ -1,13 +1,13 @@
 import axios from 'axios';
-const LOGIN_USER_KEY = 'WD_FORUM_LOGIN_USER_KEY';
+const LOGIN_USER_KEY = 'FRESHZEST_LOGIN_USER_KEY';
 
-var baseURL;
+/* var baseURL;
 if (process.env.REACT_APP_ENVIRONMENT && process.env.REACT_APP_ENVIRONMENT === 'PRODUCTION') {
     baseURL = process.env.REACT_APP_API_BASE_URL;
 } else {
-    baseURL = "https://freshzest-backend.herokuapp.com/";
-}
-
+    baseURL = 'http://127.0.0.1:8000';
+} */
+const baseURL = 'http://127.0.0.1:8000/';
 const api = axios.create({
     baseURL: baseURL,
     headers: {
@@ -32,6 +32,57 @@ api.interceptors.request.use(
 );
 
 export default class API {
+    /////////////////////////
+    // Users
+    /////////////////////////
+    signUp = async (username, email, password) => {
+        const formData = new FormData();
+        formData.append('username', username);
+        formData.append('email', email);
+        formData.append('password', password);
+        console.log('password', password);
+        const savedPost = await api
+            .post('/users/signup/', formData)
+            .then(response => {
+                console.log(response.data);
+                return response.data;
+            })
+            .catch(error => {
+                throw new Error(error);
+            });
+        return savedPost;
+    };
+    signIn = async (email, password) => {
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('password', password);
+        const savedPost = await api
+            .post('/users/signin/', formData)
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                throw new Error(error);
+            });
+        return savedPost;
+    };
+    getUsers = async token => {
+        const posts = await api
+            .get('/users/', {
+                data: {},
+                headers: {
+                    Authorization: token
+                }
+            })
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                throw new Error(error);
+            });
+        return posts;
+    };
+
     getPosts = params => {
         return api
             .get('/posts/', { params })
@@ -62,5 +113,16 @@ export default class API {
         return api.delete(`/posts/delete/${id}/`).catch(error => {
             throw new Error(error);
         });
+    };
+    getItems = async (page, category) => {
+        const items = await api
+            .get('/items/', { params: { category, page } })
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                throw new Error(error);
+            });
+        return items;
     };
 }
