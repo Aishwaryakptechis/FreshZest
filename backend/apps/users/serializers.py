@@ -1,3 +1,4 @@
+
 from .models import User
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password, check_password
@@ -10,7 +11,8 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'password', 'email', 'token', 'token_expires_at')
+        fields = ('user_name', 'email', 'password', 'token', 'token_expires_at')
+
 
 class UserSignUpSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -19,9 +21,9 @@ class UserSignUpSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'password', 'email', 'token', 'token_expires_at')
-        
-        # Override the create method
+        fields = ('user_name', 'email', 'password', 'token', 'token_expires_at')
+
+    # Override the create method
     def create(self, validated_data):
         # Encrypt the password
         validated_data['password'] = make_password(validated_data['password'])
@@ -60,4 +62,4 @@ class UserSignInSerializer(serializers.ModelSerializer):
             return user[0]
         else:
             # Raise error
-            raise serializers.ValidationError({"error": "The password or email is incorrect."})    
+            raise serializers.ValidationError({"error": "The password or email is incorrect."})

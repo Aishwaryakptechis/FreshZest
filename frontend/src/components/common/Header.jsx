@@ -1,20 +1,55 @@
-import React from 'react'
-import cart from '../../assets/img/Page-1.png'
-import main from '../../assets/img/background.png'
+import React, { useEffect, useState } from "react";
+import ImageCartLogo from "../../assets/img/cart.png";
+import { signOut } from "../../reducks/users/operations";
+import { useDispatch } from "react-redux";
+import { push } from "connected-react-router";
 
-function Header() {
-    return (
-        <>
-        <section class="main">
-        <div class="head">
-            <h3>FreshZest</h3>
-            <p>Sign in</p>
-           <img src={cart}/>
+export default function Header() {
+  const dispatch = useDispatch();
+  const key = localStorage.getItem("LOGIN_USER_KEY");
+  const [checkUser, setCheckUser] = useState(false);
+
+  const signOutButton = () => {
+    dispatch(signOut());
+    setCheckUser(false);
+    dispatch(push("/signin"));
+  };
+
+  useEffect(() => {
+    if (key != null) {
+      setCheckUser(true);
+    }
+  }, [key]);
+
+  return (
+    <header>
+      <section class="header-box">
+        <a href="/">
+          <div class="header">
+            <span class="views">FRESHZEST</span>
+          </div>
+        </a>
+        <div class="header-links">
+          <p class="sign-in-link">
+            {checkUser ? (
+              <span class="logout" onClick={signOutButton}>
+                Logout
+              </span>
+            ) : (
+              <a href="/signin" class="sign-in">
+                Sign In
+              </a>
+            )}
+          </p>
+          {checkUser && (
+            <p class="img">
+              <a href="/cart">
+                <img src={ImageCartLogo} alt="" />
+              </a>
+            </p>
+          )}
         </div>
-        <img src={main} alt=""  id = "bimg"/>
-    </section>
-        </>
-    )
+      </section>
+    </header>
+  );
 }
-
-export default Header

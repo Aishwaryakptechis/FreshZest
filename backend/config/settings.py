@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 CORS_ALLOW_ALL_ORIGINS = True
-# CORS_ALLOWED_ORIGINS = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://forum-prod-frontend.herokuapp.com']
+# CORS_ALLOWED_ORIGINS = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://frontend-electric-views.herokuapp.com']
 
 # Application definition
 
@@ -46,12 +46,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.posts',
+    'apps.users', 
+    'apps.carts', 
+    'apps.orders',
+    'apps.items',
     'cloudinary',
     'django_filters',
-    'apps.users',
-    'apps.orders',
-    'apps.carts',
-    'apps.items'
 ]
 
 MIDDLEWARE = [
@@ -94,11 +94,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'dch7n72frg031v',
-#         'USER': 'ldpelxievviuhf',
+#         'NAME': 'de2dfvem42krij',
+#         'USER': 'fozuxwpcescfyf',
 #         'PORT': 5432,
-#         'HOST': 'ec2-23-23-164-251.compute-1.amazonaws.com',
-#         'PASSWORD': '8a9353d3c2aa7a6baaf128ed3c6fc0a4ede1cccfec1ccc0222e089e0871b8975',
+#         'HOST': 'ec2-52-205-45-219.compute-1.amazonaws.com',
+#         'PASSWORD': '7bb13323d080d66bfaf110d4c92cb42c4bdee4829a7bba8c523d072c8daa8d1e',
 #     }
 # }
 
@@ -159,14 +159,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 cloudinary.config(
-    cloud_name="techis",
-    api_key="886187759951178",
-    api_secret="WGcWrWfkPlxdOCdlFaLTdjSNtfo",
+    cloud_name="www-techis-io",
+    api_key="891747999686865",
+    api_secret="seWq_dLQRcb7O5eMY-XdAuznU_w",
     secure=True
 )
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }

@@ -1,71 +1,203 @@
-import React from 'react'
-import cart from '../assets/img/Page-1.png';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import API from "../API";
+import { getCarts, getSubtotal } from "../reducks/carts/selectors";
+import { fetchCarts } from "../reducks/carts/operations";
+import { addOrder } from "../reducks/order/operations";
+import { push } from "connected-react-router";
+const api = new API();
 
-function Shipping() {
-    return (
-        <>
-            <section class="main">
-        <div class="head">
-            <h3>FreshZest</h3>
-            <p>Sign in</p>
-            <img src={cart} alt="" />
+const Shipping = () => {
+  const selector = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const subtotal = getSubtotal(selector);
+  const carts = getCarts(selector);
+
+  const [full_name, setFullName] = useState(""),
+    [phone, setPhone] = useState(""),
+    [address, setAddress] = useState(""),
+    [pincode, setPincode] = useState(""),
+    [apt, setApt] = useState(""),
+    [city, setCity] = useState(""),
+    [state, setState] = useState(""),
+    [totalitem, setTotalItem] = useState(0);
+
+  useEffect(() => {
+    dispatch(fetchCarts());
+  }, []);
+
+  useEffect(() => {
+    let arr = [];
+    if (carts != undefined && carts.length > 0) {
+      for (let key in carts) {
+        arr.push(carts[key].quantity);
+      }
+      let sum = arr.reduce(function (a, b) {
+        return a + b;
+      }, 0);
+      setTotalItem(sum);
+    }
+  }, [carts]);
+
+  const inputFullname = (e) => {
+    setFullName(e.target.value);
+  };
+
+  const inputPhoneNumber = (e) => {
+    setPhone(e.target.value);
+  };
+
+  const inputAddress = (e) => {
+    setAddress(e.target.value);
+  };
+
+  const inputPin = (e) => {
+    setPincode(e.target.value);
+  };
+
+  const inputHouse = (e) => {
+    setApt(e.target.value);
+  };
+
+  const inputCity = (e) => {
+    setCity(e.target.value);
+  };
+
+  const inputState = (e) => {
+    setState(e.target.value);
+  };
+
+  const orderButton = (e) => {
+    let params = {
+      total_price: subtotal,
+      full_name: full_name,
+      address_line1: address,
+      address_line2: apt,
+      city: city,
+      state: state,
+      postal_code: pincode,
+      country: "US",
+      telephone: phone,
+    };
+    dispatch(addOrder(params));
+    e.preventDefault();
+    dispatch(push("order-confirmation"));
+  };
+
+  return (
+    <>
+      <div class="box">
+        <p>- Order your items -</p>
+      </div>
+
+      <section class="details">
+        <div class="product-details">
+          <h3>Shipment Details</h3>
+          <h4>Please check your items and confirm it</h4>
+          <div class="box2">
+            <table>
+              {carts &&
+                carts.map((cart) => (
+                  <tr>
+                    <td class="td-item">{cart.item.name}</td>
+                    <td class="td-quantity">{cart.quantity}</td>
+                    <td class="td-price">{cart.item.Price}</td>
+                  </tr>
+                ))}
+              <tr class="border">
+                <td>Total Price</td>
+                <td>{totalitem}</td>
+                <td>${subtotal}</td>
+              </tr>
+            </table>
+          </div>
         </div>
-    </section>
-  
-    <section class="main3">
-            <h4>-Order Your Items-</h4> 
-    </section> 
 
-    <section>
-        <div class="form">
-            <div class="total">
-                <h3>Shipment Details</h3><br/>
-                <p>Please Check Your Item and Confirm it</p>
-            </div>
-            <div class="order1">
-                <p>Green Lemonade</p>
-                <h4>1</h4>
-                <h3>$16</h3>  
-            </div> <br/>
+        <div class="dispatch">
+          <div class="form">
+            <label for="name">Full name</label> <br />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Enter Recipient's name"
+              onChange={inputFullname}
+            />
+            <br />
+            <label for="number">Phone Number</label> <br />
+            <input
+              type="text"
+              id="number"
+              name="number"
+              required
+              placeholder="Enter Phone Number"
+              onChange={inputPhoneNumber}
+            />
+            <br />
+            <label for="address">Street address or P.O. Box</label> <br />
+            <input
+              type="text"
+              id="address"
+              name="address"
+              required
+              placeholder="Enter Street address or P.O. Box"
+              onChange={inputAddress}
+            />
+            <br />
+            <label for="zip">PIN code</label> <br />
+            <input
+              type="text"
+              id="zip"
+              name="zip"
+              required
+              placeholder="Enter PIN code"
+              onChange={inputPin}
+            />
+            <br />
+            <label for="house">Apt, suite, unit, building, floor, etc.</label>
+            <br />
+            <input
+              type="text"
+              id="house"
+              name="house"
+              required
+              placeholder="Enter Apt, suite, unit, building, floor, etc."
+              onChange={inputHouse}
+            />
+            <br />
+            <label for="city">City</label> <br />
+            <input
+              type="text"
+              id="city"
+              name="city"
+              required
+              placeholder="Enter City"
+              onChange={inputCity}
+            />
+            <br />
+            <label for="state">State</label> <br />
+            <input
+              type="text"
+              id="State"
+              name="state"
+              required
+              placeholder="Enter State"
+              onChange={inputState}
+            />
+            <button
+              type="submit"
+              name="submit"
+              value="SUBMIT"
+              class="submit"
+              onClick={orderButton}
+            >Submit</button>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
-            <div class="order1">
-                <p>Orange Lemonade</p>
-                <h4 id="Q">2</h4>
-                <h3>$32</h3>  
-            </div> <br/>
-
-            <div class="order2">
-                <p>Total price</p>
-                <h4 id="Q1">3</h4>
-                <h3>$48</h3>  
-            </div> <br/>
-
-            <label for="name">Full Name</label><br/>
-                <input type="text" id="name" required placeholder="Enter Recipient's Name"/><br/>
-         
-            <br/><label for="number">Phone Number</label><br/>
-                <input type="text" id="number" required placeholder="Enter Phone Number"/><br/>
-      
-            <br/><label for="address">Street address or P.O. Box</label><br/>
-                <input type="text" id="address" required placeholder="Enter Street address or P.O. Box"/><br/>
-            
-                <br/><label for="code">PIN Code</label><br/>
-                <input type="text" id="code" required placeholder="Enter PIN Code"/><br/>
-            
-                <br/><label for="house">Apt, suite, unit, building, floor, etc.</label><br/>
-                <input type="text" id="house" required placeholder="Enter Apt, suite, unit, building, floor, etc."/><br/>
-
-                <br/><label for="city">City</label><br/>
-                <input type="text" id="city" required placeholder="Enter City"/><br/>
-
-                <br/> <label for="state">State</label><br/>
-                <input type="text" id="state" required placeholder="Enter State"/><br/>
-            <button>SUBMIT</button>
-               
-         </div>
-    </section>
-        </>
-    )
-}
-
-export default Shipping
+export default Shipping;

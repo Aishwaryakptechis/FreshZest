@@ -8,15 +8,15 @@ import reportWebVitals from './reportWebVitals';
 import * as History from 'history';
 
 const history = History.createBrowserHistory();
-const store = createStore(history);
+export const store = createStore(history);
 
 ReactDOM.render(
-    <Provider store={store}>
-        <ConnectedRouter history={history}>
-            <App />
-        </ConnectedRouter>
-    </Provider>,
-    document.getElementById('root')
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,63 +1,81 @@
-import React from 'react';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import Footer from '../components/common/Footer';
-import Header from '../components/common/Header';
-import List from '../components/common/List';
-import { signIn } from '../reducks/users/operations';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { signIn } from "../reducks/users/operations";
+import Home from "../containers/Home";
+import CrossX from "../assets/img/cross.png";
+import Melodium from "../assets/img/Melodium.svg";
+import { push } from "connected-react-router";
 
-const SignIn = ({ trigger, setTrigger, setsignup }) => {
-    const dispatch = useDispatch();
-    const [email, setEmail] = useState(''),
-        [password, setPassword] = useState('');
-    const inputEmail = event => {
-        setEmail(event.target.value);
-    };
-    const inputPassword = event => {
-        setPassword(event.target.value);
-    };
-    const submitButton = event => {
-        event.preventDefault();
-        dispatch(signIn(email, password));
-        setEmail('');
-        setPassword('');
-        const key = localStorage.getItem('FRESHZEST_LOGIN_USER_KEY');
-        if (!key) {
-            console.log(key);
-            setTrigger(false);
-        }
-    };
+const Signin = () => {
+  const dispatch = useDispatch();
 
-    return (
-        <>
-            <Header />
-            <List />
-            <section class="popup">
-                <div class="popup-inner">
-                    <h1>SIGN IN</h1>
-                    <div class="popup-input">
-                        <input type="email" onChange={inputEmail} required placeholder="Email-address" value={email} />
-                        <br />
-                        <br />
-                        <input
-                            type="password"
-                            onChange={inputPassword}
-                            required
-                            placeholder="Password "
-                            value={password}
-                        />
-                        <br /> <br />
-                        <button onClick={submitButton}>SIGN IN</button>
-                        <p>
-                            Not a Member? <a href="SignUp">Join Us</a>
-                        </p>
-                    </div>
+  const closeButton = () => {
+    dispatch(push("/"));
+  };
+
+  const [email, setEmail] = useState(""),
+    [password, setPassword] = useState("");
+
+  const inputEmail = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const inputPassword = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const signInButton = () => {
+    dispatch(signIn(email, password));
+    setEmail("");
+    setPassword("");
+  };
+  return (
+    <>
+      <Home />
+      <section class="popup">
+        <div class="popup-inner">
+          <div class="popup-preview">
+            <div class="popup-inner">
+              <span onClick={closeButton}>
+                <img src={CrossX} class="close" />
+              </span>
+              <div class="input">
+                <div class="Melodum">
+                  <p class="bold">FRESHZEST</p>
                 </div>
-            </section>
+                <p class="bold2">SIGN IN</p>
+                <input
+                  type="email"
+                  onChange={inputEmail}
+                  required
+                  placeholder="Email address"
+                  value={email}
+                />{" "}
+                <br />
+                <input
+                  type="password"
+                  onChange={inputPassword}
+                  required
+                  placeholder="Password"
+                  vlaue={password}
+                />
+              </div>
 
-            <Footer />
-        </>
-    );
+              <button class="button" onClick={signInButton}>
+                JOIN US
+              </button>
+              <p class="bottom">
+                Already a Member?{" "}
+                <a href="/signup">
+                  <u>Join Us.</u>
+                </a>{" "}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 };
 
-export default SignIn;
+export default Signin;
