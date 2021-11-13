@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Router from "./Router";
 import "./assets/style.css";
-import Header from "./components/Common/Header";
+import Header from "./components/Common/Header"
 import Footer from "./components/Common/Footer";
 import { getUser } from "./reducks/users/selectors";
 import { fetchUserFromLocalStorage } from "./reducks/users/operations";
