@@ -113,7 +113,8 @@ const Shipping = () => {
             </table>
           </div>
         </div>
-
+        <br />
+        <br />
         <div class="dispatch">
           <div class="form">
             <label for="name">Full name</label> <br />
