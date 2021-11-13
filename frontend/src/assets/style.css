@@ -542,7 +542,6 @@ footer button {
 
 .details .box2 table {
 	margin: 0;
-	font-size: 2em;
 	width: 100%;
 	color: #000000;
 	border-collapse: collapse;
@@ -562,7 +561,6 @@ td {
 .details h3 {
 	font-family: Roboto;
 	color: black;
-	font-size: 4em;
 	font-weight: bolder;
 	margin: 0;
 }
