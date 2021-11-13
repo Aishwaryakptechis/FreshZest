@@ -6,42 +6,43 @@ import { getCarts } from "../reducks/carts/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../reducks/users/selectors";
 import { getItems } from "../reducks/items/selectors";
-import MainImage from "../components/Common/MainImage"
+import MainImage from "../components/Common/MainImage";
 
 const Cart = () => {
-  const selector = useSelector((state) => state);
-  const dispatch = useDispatch();
-  const carts = getCarts(selector);
-  const user = getUser(selector);
-  const items = getItems(selector);
+	const selector = useSelector((state) => state);
+	const dispatch = useDispatch();
+	const carts = getCarts(selector);
+	const user = getUser(selector);
+	const items = getItems(selector);
 
-  useEffect(() => {
-    dispatch(fetchItems());
-    dispatch(fetchCarts());
-  }, []);
+	useEffect(() => {
+		dispatch(fetchItems());
+		dispatch(fetchCarts());
+	}, []);
 
-  return (
-    <>
-      <MainImage/>
-      <section class="content">
-        <ul class="items">
-          {
-            (carts,
-            items &&
-              carts.map((cart) => (
-                <li>
-                  <CartItem
-                    cart={cart.item}
-                    key={cart.item.id}
-                    quantity={cart.quantity}
-                  />
-                </li>
-              )))
-          }
-        </ul>
-      </section>
-    </>
-  );
+	return (
+		<>
+			<MainImage />
+			<section class="content">
+				<ul class="items">
+					{
+						(carts,
+						items &&
+							carts.map((cart) => (
+								<li>
+									<CartItem
+										cart={cart.item}
+										cartId={cart.id}
+										key={cart.item.id}
+										quantity={cart.quantity}
+									/>
+								</li>
+							)))
+					}
+				</ul>
+			</section>
+		</>
+	);
 };
 
 export default Cart;

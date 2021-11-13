@@ -65,7 +65,7 @@ const Signin = () => {
                 JOIN US
               </button>
               <p class="bottom">
-                Already a Member?{" "}
+                Not a Member?{" "}
                 <a href="/signup">
                   <u>Join Us.</u>
                 </a>{" "}

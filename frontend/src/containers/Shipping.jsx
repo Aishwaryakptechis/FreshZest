@@ -102,7 +102,7 @@ const Shipping = () => {
                   <tr>
                     <td class="td-item">{cart.item.name}</td>
                     <td class="td-quantity">{cart.quantity}</td>
-                    <td class="td-price">{cart.item.Price}</td>
+                    <td class="td-price">{cart.item.price}</td>
                   </tr>
                 ))}
               <tr class="border">

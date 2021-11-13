@@ -45,7 +45,7 @@ const SignUp = () => {
                   
                   <p class="bold">FRESHZEST</p>
                 </div>
-                <p class="bold2">SIGN IN</p>
+                <p class="bold2">SIGN UP</p>
                 <input
                   type="email"
                   class="form-control"

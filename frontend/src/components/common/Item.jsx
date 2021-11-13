@@ -45,37 +45,34 @@ const Item = ({ item }) => {
     dispatch(decreaseCart(particularCart.id));
   };
   return (
-    <div>
-      <section class="content">
-        <ul class="items">
-          <li>
-            <img src={item.image} class="item-image" alt="" />
-            <div class="info">
-              <div class="name">{item.name}</div>
-              <div class="info-bottom">
-                <div class="price">$ {item.price}</div>
-                {particularCart && particularCart.quantity > 0 ? (
-                  <div class="number">
-                    <span class="minus" onClick={clickMinusCart}>
-                      －
-                    </span>
-                    <span class="count">{particularCart.quantity}</span>
-                    <span class="plus" onClick={clickPlusCart}>
-                      +
-                    </span>
-                  </div>
-                ) : (
-                  <div class="add" onClick={clickAddCart}>
-                    Add +
-                  </div>
-                )}
-              </div>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </div>
-  );
+		<div>
+						<img src={item.image} alt="" />
+						<div class="info">
+							<div class="name">{item.name}</div>
+							<div class="info-bottom">
+								<div class="price">${item.price}</div>
+								{particularCart && particularCart.quantity > 0 ? (
+									<div class="number">
+										<span class="minus" onClick={clickMinusCart}>
+											－
+										</span>
+										<span class="count">{particularCart.quantity}</span>
+										<span class="plus" onClick={clickPlusCart}>
+											+
+										</span>
+									</div>
+								) : (
+									<div class="add" onClick={clickAddCart}>
+										Add +
+									</div>
+								)}
+							</div>
+						</div>
+
+			
+		</div>
+	);
 };
+
 
 export default Item;
