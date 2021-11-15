@@ -375,7 +375,6 @@ footer button {
 .popup .popup-inner {
 	position: relative;
 	margin: 5px;
-	height: 98%;
 	padding: 10px;
 }
 
@@ -393,11 +392,9 @@ footer button {
 .popup .popup-inner .popup-preview {
 	position: absolute;
 	left: 35%;
-	width: 30%;
 	background-color: white;
 	border-radius: 3%;
-	margin-top: 15%;
-	height: 60%;
+	margin-top: 6%;
 }
 @media screen and (max-width: 500px) {
 	.popup .popup-inner .popup-preview {
