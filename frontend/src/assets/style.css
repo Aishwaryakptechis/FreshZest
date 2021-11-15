@@ -61,7 +61,7 @@ header .header-links .sign-in-link .logout {
 
 header .header-links .img img {
 	width: 30px;
-	margin: 0;
+	margin-left: 100%;
 	padding: 0;
 }
 
@@ -92,7 +92,7 @@ header .header-links .img img {
 .main-visual img {
 	width: 100%;
 	margin-left: 0;
-	margin-bottom: 0;
+	margin-bottom: 2%;
 	height: 450px;
 }
 
@@ -187,7 +187,6 @@ ul.items li .info .info-bottom .add {
 ul.items li {
 	list-style: none;
 	padding-bottom: 60px;
-	padding-top: 3%;
 }
 ul.items li img {
 	width: 30%;
@@ -237,7 +236,7 @@ ul.items li .info .info-bottom .add {
 	cursor: pointer;
 	background-color: #a4c703;
 	color: #fff;
-	border-radius: 5%;
+	
 }
 
 ul.items li .info .info-bottom .number {
@@ -354,7 +353,6 @@ footer button {
 	color: #ffffff;
 	border: 0;
 	padding: 8px 15px;
-  border-radius: 5%;
 	font-size: 15px;
 	font-family: Roboto;
 	cursor: pointer;
@@ -487,7 +485,6 @@ footer button {
 	margin-top: 10px;
 	height: 50px;
 	margin: 10px;
-	border-radius: 3%;
 	border-style: none;
 }
 .bottom {
@@ -651,7 +648,7 @@ td {
 	font-size: 25px;
 	font-family: Roboto;
 	cursor: pointer;
-	border-radius: 5%;
+	
 }
 
 @media screen and (max-width: 600px) {
