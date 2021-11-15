@@ -62,7 +62,7 @@ const Signin = () => {
               </div>
 
               <button class="button" onClick={signInButton}>
-                JOIN US
+                SIGN IN
               </button>
               <p class="bottom">
                 Not a Member?{" "}
