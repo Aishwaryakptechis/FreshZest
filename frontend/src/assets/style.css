@@ -395,6 +395,7 @@ footer button {
 	background-color: white;
 	border-radius: 3%;
 	margin-top: 6%;
+	width: 25%;
 }
 @media screen and (max-width: 500px) {
 	.popup .popup-inner .popup-preview {
@@ -432,7 +433,7 @@ footer button {
 	font-weight: bold;
 	font-size: 25px;
 	margin: 0 auto;
-	width: 36%;
+	width: 50%;
 	margin-bottom: 10px;
 }
 .popup .popup-inner .popup-preview .input p {
